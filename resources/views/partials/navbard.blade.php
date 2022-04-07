@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/utama">BIKA | {{ $title }}</a>
+    <a class="navbar-brand" href="/utama">Navbar scroll</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="row">
+    <div class="container">
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
         <li class="nav-item">
@@ -37,7 +37,7 @@
             others
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="./contact">Contact</a></li>
+            <li><a class="dropdown-item" href="#">Contact</a></li>
             <li><a class="dropdown-item" href="#">Coupon</a></li>
             <li><a class="dropdown-item" href="#">Expenses</a></li>
             <li><a class="dropdown-item" href="#">Inventory</a></li>
@@ -45,15 +45,21 @@
               <li><a class="dropdown-item" href="#">Payments</a></li>
               <li><a class="dropdown-item" href="#">Reports</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/team-members">Team Members</a></li>
+            <li><a class="dropdown-item" href="/team_members">Team Members</a></li>
           </ul>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($active === "orderonline.addproduk") ? 'active' : ''}} " href="/produk"><button type="button" class="btn btn-warning btn-sm">Add Product</button></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($active === "orderonline.dashboard") ? 'active' : ''}} " aria-current="page" href="/dashboard"><i class="bi bi-bell-fill"></i></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ ($active === "orderonline.dashboard") ? 'active' : ''}} " aria-current="page" href="/dashboard"><i class="bi bi-inboxes"></i></a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link {{ ($active === "chanel") ? 'active' : ''}}  dropdown-toggle" href="/chanel" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Account
+            <i class="bi bi-person-circle  "></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
             <li><a class="dropdown-item" href="#">Profile</a></li>

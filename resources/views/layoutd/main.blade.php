@@ -14,6 +14,8 @@
     <!-- my css -->
   <link rel="stylesheet" href="css/style.css">
 
+  <link rel="stylesheet" href="css/add.css">
+
     <title>Bisnis Kita | {{ $title }}</title>
   </head>
   <body>

@@ -8,7 +8,7 @@ class TeamembersController extends Controller
 {
     public function index()
     {
-        return view('team-members.index', [
+        return view('dashboard.team-members.team_members', [
             'title'=>'team-members',
             'active'=> 'team-members'
         ]);

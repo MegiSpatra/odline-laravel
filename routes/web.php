@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\TeamemberController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\TeamembersController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -40,6 +40,44 @@ Route::get('/harga', function () {
     ]);
 });
 
+Route::get('/utama', function () {
+    return view('dashboard.utama',[
+        "title" => "utama",
+        "active" => "utama"
+    ]);
+});
+Route::get('/product', function () {
+    return view('dashboard.product',[
+        "title" => "product",
+        "active" => "product"
+    ]);
+});
+Route::get('/orders', function () {
+    return view('dashboard.orders',[
+        "title" => "orders",
+        "active" => "orders"
+    ]);
+});
+Route::get('/logistic', function () {
+    return view('dashboard.logistic',[
+        "title" => "logistic",
+        "active" => "logistic"
+    ]);
+});
+Route::get('/addmember', function () {
+    return view('dashboard.addmember',[
+        "title" => "addmember",
+        "active" => "addmember"
+    ]);
+});
+Route::get('/team_members', function () {
+    return view('dashboard.team-members.team_members',[
+        "title" => "team_members",
+        "active" => "team_members"
+    ]);
+});
+
+
 
 
 Route::get('/login', [LoginController::class, 'index']);
@@ -51,7 +89,7 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 
-Route::get('/team-members', [TeamembersController::class, 'index']);
+Route::get('/team-members', [TeamemberController::class, 'index']);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
 //Route::resource('/team-members', UserController::class);
 //Route::post('/team-members', [TeamemberController::class, 'index']);
