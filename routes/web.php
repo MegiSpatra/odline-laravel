@@ -1,11 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\TeamemberController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeamembersController;
 
 
 /*
@@ -51,7 +51,7 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
 
-Route::get('/team-members', [TeamemberController::class, 'index']);
+Route::get('/team-members', [TeamembersController::class, 'index']);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
 //Route::resource('/team-members', UserController::class);
 //Route::post('/team-members', [TeamemberController::class, 'index']);
