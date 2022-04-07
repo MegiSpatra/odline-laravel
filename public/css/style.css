@@ -1,0 +1,49 @@
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-daftar input {
+    border-radius: 0;
+    margin-bottom: -1px;
+}
+
+.form-bayar {
+    width: 100%;
+    padding: 130px;
+}
+
+.form-rodoknisor {
+    padding: 100px;
+}
+
+.form-begron {
+    width: 100%;
+    padding: 50px;
+    margin-right: 100px;
+    background-color: rgb(25, 59, 59);
+}
+
+.form-home {
+    background-color: rgb(42, 122, 122);
+}
+
+.form-bayar {
+    width: 100%;
+    padding: 130px;
+}
+
+.form-table {
+    background-color: rgb(250, 252, 252);
+}
