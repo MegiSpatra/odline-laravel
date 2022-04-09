@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as AuthUser;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends AuthUser
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -17,12 +17,18 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    //protected $fillable = [
-      //  'name',
-      //  'email',
-      //  'username',
-      //  'password',
-    //];
+    use HasFactory;
+
+    protected $table = 'tb_user';
+    protected $primaryKey = 'id_user';
+
+    protected $fillable = [
+        'nama_user',
+        'email',
+        'password',
+        'level',
+    ];
+
     protected $guarded = ['id'];
 
     /**
@@ -43,6 +49,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    
 }

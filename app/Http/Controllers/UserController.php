@@ -2,77 +2,118 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-         //fungsi eloquent menampilkan data menggunakan pagination
-         $users = User::latest()->paginate(5);
-         return view('team-member.index', compact('users'))
-             ->with('i', (request()->input('page', 1) - 1) * 5);
-    }
-    public function create()
-    {
-        return view('team-member.create');
+        $data['title'] = 'Data User';
+        $data['q'] = $request->q;
+        $data['rows'] = User::where('nama_user', 'like', '%' . $request->q . '%')->get();
+        return view('user.index', $data);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create(Request $request)
+    {
+        $data['title'] = 'Tambah User';
+        $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
+        return view('user.create', $data);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
-        //melakukan validasi data
         $request->validate([
-            'name' => 'required',
-            'email' => 'required',
+            'nama_user' => 'required',
+            'email' => 'required|unique:tb_user',
             'password' => 'required',
+            'level' => 'required',
         ]);
 
-        //fungsi eloquent untuk menambah data
-        User::create($request->all());
-
-        //jika data berhasil ditambahkan, akan kembali ke halaman utama
-        return redirect()->route('team-member.index')
-            ->with('success', 'User Berhasil Ditambahkan');
+        $user = new User();
+        $user->nama_user = $request->nama_user;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->level = $request->level;
+        $user->save();
+        return redirect('user')->with('success', 'Tambah Data Berhasil');
     }
 
-    public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user
-        $user = User::find($id);
-        return view('team-member.detail', compact('user'));
     }
 
-    public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
     {
-        //menampilkan detail data dengan menemukan/berdasarkan id user untuk diedit
-        $user = User::find($id);
-        return view('team-member.edit', compact('user'));
+        $data['title'] = 'Ubah User';
+        $data['row'] = $user;
+        $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
+        return view('user.edit', $data);
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
     {
-        //melakukan validasi data
         $request->validate([
-            'name' => 'required',
+            'nama_user' => 'required',
             'email' => 'required',
-            'password' => 'required',
+            'level' => 'required',
         ]);
 
-        //fungsi eloquent untuk mengupdate data inputan kita
-        User::find($id)->update($request->all());
-
-        //jika data berhasil diupdate, akan kembali ke halaman utama
-        return redirect()->route('team-member.index')
-            ->with('success', 'User Berhasil Diupdate');
+        $user->nama_user = $request->nama_user;
+        $user->email = $request->email;
+        if ($request->password)
+            $user->password = Hash::make($request->password);
+        $user->level = $request->level;
+        $user->save();
+        return redirect('user')->with('success', 'Ubah Data Berhasil');
     }
 
-    public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
     {
-        //fungsi eloquent untuk menghapus data
-        User::find($id)->delete();
-        return redirect()->route('team-member.index')
-            ->with('success', 'User Berhasil Dihapus');
+        $user->delete();
+        return redirect('user')->with('success', 'Hapus Data Berhasil');
     }
-
 }

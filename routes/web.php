@@ -88,8 +88,9 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
+Route::resource('user', UserController::class);
 
-Route::get('/team-members', [TeamemberController::class, 'index']);
+Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
 //Route::resource('/team-members', UserController::class);
 //Route::post('/team-members', [TeamemberController::class, 'index']);
