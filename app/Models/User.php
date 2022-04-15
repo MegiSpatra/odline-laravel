@@ -17,17 +17,17 @@ class User extends AuthUser
      *
      * @var array<int, string>
      */
-    use HasFactory;
+   // use HasFactory;
 
-    protected $table = 'tb_user';
-    protected $primaryKey = 'id_user';
+    //protected $table = 'tb_user';
+    //protected $primaryKey = 'id_user';
 
-    protected $fillable = [
-        'nama_user',
-        'email',
-        'password',
-        'level',
-    ];
+  //  protected $fillable = [
+   //     'nama_user',
+   //     'email',
+   //     'password',
+   //     'level',
+   // ];
 
     protected $guarded = ['id'];
 

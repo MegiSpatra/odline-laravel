@@ -23,7 +23,8 @@ class DaftarController extends Controller
             'email' => 'required|email:dns|unique:users',
             'username' => 'required|min:4|max:255',
             'NoTelephone' => 'required|min:10|max:14',
-            'password' => 'required|min:8|max:255'
+            'password' => 'required|min:8|max:255',
+            
         ]);
         //$validateData['password'] = bcrypt($validateData['password']);
         //encripsi password
@@ -32,7 +33,7 @@ class DaftarController extends Controller
         
         User::create($validateData);
         $request->session()->flash('berhasil', 'Berhasil terdaftar! Silahkan Login');
-        return redirect('/dashboard'); 
+        return redirect('dashboard'); 
         
     }
 }

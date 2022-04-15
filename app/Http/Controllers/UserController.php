@@ -15,10 +15,12 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        $data['title'] = 'Data User';
+        $data['title'] = 'team-members';
+        $data['active'] = 'team-members';
         $data['q'] = $request->q;
-        $data['rows'] = User::where('nama_user', 'like', '%' . $request->q . '%')->get();
-        return view('user.index', $data);
+        $data['rows'] = User::where('name', 'like', '%' . $request->q . '%')->get();
+        
+        return view('dashboard.team-members.index', $data);
     }
 
     /**
@@ -30,7 +32,13 @@ class UserController extends Controller
     {
         $data['title'] = 'Tambah User';
         $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
-        return view('user.create', $data);
+        return view('dashboard.team-members.create', $data);
+    }
+    public function addmember(Request $request)
+    {
+        $data['title'] = 'Tambah User';
+        $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
+        return view('dashboard.addmember', $data);
     }
 
     /**
@@ -42,19 +50,19 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama_user' => 'required',
-            'email' => 'required|unique:tb_user',
+            'name' => 'required',
+            'email' => 'required|unique:user',
             'password' => 'required',
             'level' => 'required',
         ]);
 
         $user = new User();
-        $user->nama_user = $request->nama_user;
+        $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->level = $request->level;
         $user->save();
-        return redirect('user')->with('success', 'Tambah Data Berhasil');
+        return redirect('team-members')->with('success', 'Tambah Data Berhasil');
     }
 
     /**
@@ -78,7 +86,7 @@ class UserController extends Controller
         $data['title'] = 'Ubah User';
         $data['row'] = $user;
         $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
-        return view('user.edit', $data);
+        return view('dashboard.team-members.edit', $data);
     }
 
     /**
@@ -91,18 +99,18 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'nama_user' => 'required',
+            'name' => 'required',
             'email' => 'required',
             'level' => 'required',
         ]);
 
-        $user->nama_user = $request->nama_user;
+        $user->name = $request->name;
         $user->email = $request->email;
         if ($request->password)
             $user->password = Hash::make($request->password);
         $user->level = $request->level;
         $user->save();
-        return redirect('user')->with('success', 'Ubah Data Berhasil');
+        return redirect('team-members')->with('success', 'Ubah Data Berhasil');
     }
 
     /**
@@ -114,6 +122,6 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
-        return redirect('user')->with('success', 'Hapus Data Berhasil');
+        return redirect('team-members')->with('success', 'Hapus Data Berhasil');
     }
 }

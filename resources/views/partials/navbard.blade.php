@@ -45,7 +45,7 @@
               <li><a class="dropdown-item" href="#">Payments</a></li>
               <li><a class="dropdown-item" href="#">Reports</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/team_members">Team Members</a></li>
+            <li><a class="dropdown-item" href="/team-members">Team Members</a></li>
           </ul>
         </li>
         <li class="nav-item">

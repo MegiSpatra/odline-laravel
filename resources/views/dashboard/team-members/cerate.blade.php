@@ -1,38 +1,44 @@
-<div class="container mt-5">
-   
-    <div class="row justify-content-center align-items-center">
-        <div class="card" style="width: 24rem;">
-            <div class="card-header">
-            Tambah User
-            </div>
-            <div class="card-body">
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-            <form method="post" action="{{ route('team-member.store') }}" id="myForm">
+@extends('layoutd.main')
+@section('dashboard-container')
+<div class="row">
+    <div class="col-md-6">
+        @if($errors->any())
+        @foreach($errors->all() as $err)
+        <p class="alert alert-danger">{{ $err }}</p>
+        @endforeach
+        @endif
+        <form action="{{ route('user.store') }}" method="POST">
             @csrf
-                <div class="form-group">
-                    <label for="name">Name</label>                    
-                    <input type="text" name="name" class="form-control" id="name" aria-describedby="name" >                
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>                    
-                    <input type="email" name="email" class="form-control" id="email" aria-describedby="email" >                
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>                    
-                    <input type="password" name="password" class="form-control" id="password" aria-describedby="password" >                
-                </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <div class="form-group">
+                <label>Nama User <span class="text-danger">*</span></label>
+                <input class="form-control" type="text" name="name" value="{{ old('name') }}" />
             </div>
-        </div>
+            <div class="form-group">
+                <label>Email <span class="text-danger">*</span></label>
+                <input class="form-control" type="email" name="email" value="{{ old('email') }}" />
+            </div>
+            <div class="form-group">
+                <label>Password <span class="text-danger">*</span></label>
+                <input class="form-control" type="password" name="password" />
+            </div>
+            <div class="form-group">
+                <label>Level <span class="text-danger">*</span></label>
+                <select class="form-control" name="level" />
+                @foreach($levels as $key => $val)
+                @if($key==old('level'))
+                <option value="{{ $key }}" selected>{{ $val }}</option>
+                @else
+                <option value="{{ $key }}">{{ $val }}</option>
+                @endif
+                @endforeach
+                </select>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary">Simpan</button>
+                <a class="btn btn-danger" href="{{ route('team-member.index') }}">Kembali</a>
+            </div>
+        </form>
     </div>
-    </div>
+</div>
+@endsection
+    
