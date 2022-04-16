@@ -4,11 +4,12 @@ namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as AuthUser;
+use Illuminate\Foundation\Auth\User as AuthMember;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends AuthUser
+class Member extends AuthMember
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -19,8 +20,8 @@ class User extends AuthUser
      */
    // use HasFactory;
 
-    //protected $table = 'tb_user';
-    //protected $primaryKey = 'id_user';
+    // protected $table = 'members';
+    // protected $primaryKey = 'id';
 
   //  protected $fillable = [
    //     'nama_user',

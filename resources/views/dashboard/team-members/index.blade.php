@@ -15,6 +15,9 @@
                 <a href="addmember"><button type="button" class="btn btn-outline-warning btn-lg">Add New Member</button></a>
             </div>
         </div>
+        {{-- <div class="form-group mr-1">
+            <a class="btn btn-primary" href="{{ route('team-members.create') }}">Tambah</a>
+        </div> --}}
 
 
         <form class="d-flex mt-5">
@@ -35,7 +38,7 @@
                         </tr>
                     </thead>
                     <?php $no = 1; ?>
-
+                    
                     @foreach ($rows as $row)
                         <tr>
                             <td>{{ $no++ }}</td>

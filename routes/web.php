@@ -6,6 +6,7 @@ use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\TeamemberController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MemberController;
 
 
 /*
@@ -64,7 +65,7 @@ Route::get('/logistic', function () {
         "active" => "logistic"
     ]);
 });
-Route::get('/addmember', function () {
+Route::get('addmember', function () {
     return view('dashboard.addmember',[
         "title" => "addmember",
         "active" => "addmember"
@@ -82,8 +83,9 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
 
-//Route::get('team-members', [UserController::class, 'index']);
-Route::resource('team-members', UserController::class);
+//Route::resource('team-members', UserController::class);
+
+Route::resource('team-members', MemberController::class);
 
 //Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');

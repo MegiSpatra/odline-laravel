@@ -7,11 +7,11 @@
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
-        <form action="{{ route('user.store') }}" method="POST">
+        <form action="{{ route('team-members.store') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label>Nama User <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="name" value="{{ old('name') }}" />
+                <input class="form-control" type="text" name="nama_user" value="{{ old('name') }}" />
             </div>
             <div class="form-group">
                 <label>Email <span class="text-danger">*</span></label>
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">Simpan</button>
-                <a class="btn btn-danger" href="{{ route('team-member.index') }}">Kembali</a>
+                <a class="btn btn-danger" href="{{ route('team-members.index') }}">Kembali</a>
             </div>
         </form>
     </div>

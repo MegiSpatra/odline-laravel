@@ -1,5 +1,6 @@
 @extends('layoutd.main')
 @section('dashboard-container')
+
 <div class="row">
     <div class="col-md-6">
         @if($errors->any())
@@ -7,12 +8,12 @@
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
-        <form action="{{ route('team-members.update', $row) }}" method="POST">
+        <form action="{{ route('taeam-member.update', $row) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
                 <label>Nama User <span class="text-danger">*</span></label>
-                <input class="form-control" type="text" name="name" value="{{ old('name', $row->name) }}" />
+                <input class="form-control" type="text" name="nama_user" value="{{ old('name', $row->nama_user) }}" />
             </div>
             <div class="form-group">
                 <label>Email <span class="text-danger">*</span></label>
@@ -37,7 +38,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">Simpan</button>
-                <a class="btn btn-danger" href="{{ route('team-member.index') }}">Kembali</a>
+                <a class="btn btn-danger" href="{{ route('team-members.index') }}">Kembali</a>
             </div>
         </form>
     </div>

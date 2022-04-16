@@ -1,14 +1,14 @@
 @extends('layoutd.main')
 @section('dashboard-container')
 
-    <div class="row row-cols-1 row-cols-md-15 g-4">
-        <div class="col-md-6">
+    <div class="row row-cols-0 row-cols-md-15 g-4">
+        <div class="col-md-15">
             @if ($errors->any())
                 @foreach ($errors->all() as $err)
                     <p class="alert alert-danger">{{ $err }}</p>
                 @endforeach
             @endif
-            <form action="{{ route('user.store') }}" method="POST">
+            <form action="{{ route('team-members.store') }}" method="POST">
                 @csrf
                 <div class="col">
                     <div class="card">
@@ -18,10 +18,11 @@
                                     <div class="container">
                                         <div class="page-header">
                                             <h1 class="page-title mt-5">Add New Member</h1>
-                                            <a href="/team_members">kembali ke halaman member..</a>
+                                            <a href="team-members">kembali ke halaman member..</a>
                                         </div>
                                         <div class="page-content">
                                             <form class="form">
+                                                @csrf
                                                 <div class="card-group mb-3">
                                                     <div class="card col-lg-4 col-md-12 p-0">
                                                         <div class="card-body box--md">
@@ -30,38 +31,34 @@
                                                                 <label>
                                                                     <b>Name</b>
                                                                 </label>
-                                                                <input type="text" name="member_name" autocomplete="nope"
-                                                                    maxlength="50" required="required"
-                                                                    class="input form-control">
+                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" />
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>
                                                                     <b>Email</b>
                                                                 </label>
-                                                                <input type="email" name="member_email" autocomplete="nope"
-                                                                    required="required" class="input form-control">
+                                                                <input class="form-control" type="email" name="email" value="{{ old('email') }}" />
                                                             </div>
                                                             <div class="form-group">
                                                                 <label>
                                                                     <b>Password</b>
                                                                 </label>
-                                                                <input type="password" name="member_password" minlength="6"
-                                                                    autocomplete="new-password" required="required"
-                                                                    class="input form-control">
-                                                            </div>
+                                                                <input class="form-control" type="password" name="password"/>                                                            </div>
                                                             <div class="form-group">
                                                                 <label>
                                                                     <b>Phone Number</b>
                                                                 </label>
-                                                                <input type="tel" name="phone" autocomplete="nope"
-                                                                    placeholder="+62xxx" class="input form-control">
+                                                                <input class="form-control" type=int name="notlfn" value="{{ old('notlfn') }}" />
                                                             </div>
                                                             <div class="form-group">
-                                                                <label>
-                                                                    <b>Role</b>
-                                                                </label>
-                                                                <input type="text" autocomplete="nope" required="required"
-                                                                    class="input form-control">
+                                                                <label><b>Role</b></label>
+                                                                <select name="test" class="mt-2">
+                                                                        <option value="1">Select 1</option>
+                                                                        <option value="2">Select 2</option>
+                                                                        <option value="3">Select 3</option>
+                                                                        <option value="4">Select 4</option>
+                                                                        <option value="5">Select 5</option>
+                                                                    </select>
                                                             </div>
                                                         </div>
                                                     </div>

@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUserTable extends Migration
+class CreateMembersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,24 +14,24 @@ class CreateUserTable extends Migration
      */
     public function up()
     {
-        Schema::create('tb_user', function (Blueprint $table) {
-            $table->id('id_user');
-            $table->string('nama_user');
+        Schema::create('members', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
             $table->string('level');
             $table->timestamps();
         });
 
-        DB::table('tb_user')->insert([
-            'nama_user' => 'Administrator',
+        DB::table('members')->insert([
+            'name' => 'Administrator',
             'email' => 'admin@gmail.com',
             'password' => 'admin',
             'level' => 'admin',
         ]);
 
-        DB::table('tb_user')->insert([
-            'nama_user' => 'User',
+        DB::table('members')->insert([
+            'name' => 'User',
             'email' => 'user@gmail.com',
             'password' => 'user',
             'level' => 'user',
@@ -45,6 +45,6 @@ class CreateUserTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tb_user');
+        Schema::dropIfExists('members');
     }
 }
