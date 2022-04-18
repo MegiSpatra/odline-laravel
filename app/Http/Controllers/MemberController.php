@@ -28,13 +28,9 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function addmember(Request $request)
-    {
-        $data['title'] = 'Tambah User';
-        $data['levels'] = ['admin' => 'Admin', 'member' => 'Member'];
-        return view('dashboard.addmember', $data);
-    }
 
+
+   
     /**
      * Store a newly created resource in storage.
      *
@@ -58,6 +54,8 @@ class MemberController extends Controller
         $member->save();
         return redirect('team-members')->with('success', 'Tambah Data Berhasil');
     }
+
+
 
     /**
      * Display the specified resource.

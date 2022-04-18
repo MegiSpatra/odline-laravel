@@ -1,12 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\TeamemberController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TeamemberController;
 
 
 /*
@@ -74,7 +75,6 @@ Route::get('addmember', function () {
 
 
 
-
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 
@@ -82,6 +82,9 @@ Route::get('/daftar', [DaftarController::class, 'index']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard']);
+
+Route::get('/profile', [ProfileController::class, 'index']);
+
 
 //Route::resource('team-members', UserController::class);
 
@@ -91,3 +94,4 @@ Route::resource('team-members', MemberController::class);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
 //Route::resource('/team-members', UserController::class);
 //Route::post('/team-members', [TeamemberController::class, 'index']);
+

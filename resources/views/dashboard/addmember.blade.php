@@ -27,38 +27,50 @@
                                                     <div class="card col-lg-4 col-md-12 p-0">
                                                         <div class="card-body box--md">
                                                             <h5 class="mb-4">Member Profile</h5>
-                                                            <div class="form-group">
-                                                                <label>
-                                                                    <b>Name</b>
-                                                                </label>
-                                                                <input class="form-control" type="text" name="name" value="{{ old('name') }}" />
+                                                            <div class="form-floating">
+                                                                <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror"
+                                                                id="name" placeholder="name" required value="{{ old('name') }}"><label for="name">Name</label>
+                                                                @error('name')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                  </div>                    
+                                                                @enderror
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label>
-                                                                    <b>Email</b>
-                                                                </label>
-                                                                <input class="form-control" type="email" name="email" value="{{ old('email') }}" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>
-                                                                    <b>Password</b>
-                                                                </label>
-                                                                <input class="form-control" type="password" name="password"/>                                                            </div>
-                                                            <div class="form-group">
-                                                                <label>
-                                                                    <b>Phone Number</b>
-                                                                </label>
-                                                                <input class="form-control" type=int name="notlfn" value="{{ old('notlfn') }}" />
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label><b>Role</b></label>
-                                                                <select name="test" class="mt-2">
-                                                                        <option value="1">Select 1</option>
-                                                                        <option value="2">Select 2</option>
-                                                                        <option value="3">Select 3</option>
-                                                                        <option value="4">Select 4</option>
-                                                                        <option value="5">Select 5</option>
-                                                                    </select>
+                                                            <div class="form-floating">
+                                                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
+                                                                <label for="email">Alamat Email</label>
+                                                                @error('email')
+                                                                  <div class="invalid-feedback">
+                                                                      {{ $message }}
+                                                                    </div>                    
+                                                                  @enderror
+                                                              </div>
+                                                              <div class="form-floating">
+                                                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror rounded-bottom" id="password" placeholder="password" required value="{{ old('password') }}">
+                                                                <label for="password">Password</label>
+                                                                @error('password')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                  </div>                    
+                                                                @enderror
+                                                              </div>                                                         </div>
+                                                              <div class="form-floating">
+                                                                <input type="text" name="NoTelephone" class="form-control @error('NoTelephone') is-invalid @enderror" id="NoTelephone" placeholder="NoTelephone" required value="{{ old('NoTelephone') }}">
+                                                                <label for="username">No. Telephone</label>
+                                                                @error('NoTelephone')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                  </div>                    
+                                                                @enderror
+                                                              </div>
+                                                              <div class="form-floating">
+                                                                <input type="text" name="level" class="form-control rounded-top @error('level') is-invalid @enderror"
+                                                                id="level" placeholder="level" required value="{{ old('level') }}"><label for="level">Role</label>
+                                                                @error('level')
+                                                                <div class="invalid-feedback">
+                                                                    {{ $message }}
+                                                                  </div>                    
+                                                                @enderror
                                                             </div>
                                                         </div>
                                                     </div>

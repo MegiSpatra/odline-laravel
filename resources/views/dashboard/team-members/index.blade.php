@@ -18,16 +18,13 @@
         {{-- <div class="form-group mr-1">
             <a class="btn btn-primary" href="{{ route('team-members.create') }}">Tambah</a>
         </div> --}}
-
-
         <form class="d-flex mt-5">
             <input type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
 
-
             <div class="card-body p-0 table-responsive">
-                <table class="table table-bordered table-striped table-hover mb-0">
+                <table class="table table-bordered table-striped table-dark table-hover mb-0">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -44,7 +41,7 @@
                             <td>{{ $no++ }}</td>
                             <td>{{ $row->name }}</td>
                             <td>{{ $row->email }}</td>
-                            <td>{{ $row->levels === '1' ? 'Admin' : 'Admin' }}</td>
+                            <td>{{ $row->level }}</td>
                             <td>
                                 <a class="btn btn-sm btn-warning" href="{{ route('team-members.edit', $row) }}">Ubah</a>
                                 <form method="POST" action="{{ route('team-members.destroy', $row) }}"

@@ -32,6 +32,11 @@ class Member extends AuthMember
   
     protected $guarded = ['id'];
 
+    public function user()
+    {
+        return $this->hasMany(User::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

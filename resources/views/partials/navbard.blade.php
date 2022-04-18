@@ -62,7 +62,7 @@
             <i class="bi bi-person-circle  "></i>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="/profile">Profile</a></li>
             <li><a class="dropdown-item" href="#">Credits</a></li>
             <li><a class="dropdown-item" href="#">Billing</a></li>
             <li><a class="dropdown-item" href="#">Apps</a></li>

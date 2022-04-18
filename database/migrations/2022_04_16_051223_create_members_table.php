@@ -22,20 +22,6 @@ class CreateMembersTable extends Migration
             $table->string('level');
             $table->timestamps();
         });
-
-        DB::table('members')->insert([
-            'name' => 'Administrator',
-            'email' => 'admin@gmail.com',
-            'password' => 'admin',
-            'level' => 'admin',
-        ]);
-
-        DB::table('members')->insert([
-            'name' => 'User',
-            'email' => 'user@gmail.com',
-            'password' => 'user',
-            'level' => 'user',
-        ]);
     }
 
     /**
