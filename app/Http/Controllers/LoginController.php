@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('login.index', [
             'title' => 'Login',
             'active' => 'login'
@@ -16,15 +17,25 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email:dns',
-            'password' => 'required' 
-        ]);
-
-        if(Auth::attempt($credentials)){
-           $request->session()->regenerate();
-           return redirect()->intended('/dashboard');
+        // $this->validate($request, [
+        //     'email' => 'required|email:dns',
+        //     'password' => 'required',
+        // ]);
+        // Attempt to log the user in
+        // Passwordnya pake bcrypt
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            // if successful, then redirect to their intended location
+            return redirect()->intended('/dashboard');
+        } else if (Auth::guard('members')->attempt(['email' => $request->email, 'password' => $request->password])) {
+            return redirect()->intended('/dashboard');
         }
-        return back()->with('loginError', 'Login failed!');
+    }
+    public function logout() {
+        if (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        } elseif (Auth::guard('memberss')->check()) {
+            Auth::guard('memberss')->logout();
+        }
+        return redirect('/');
     }
 }

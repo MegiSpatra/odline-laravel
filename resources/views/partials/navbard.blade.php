@@ -66,7 +66,12 @@
             <li><a class="dropdown-item" href="#">Credits</a></li>
             <li><a class="dropdown-item" href="#">Billing</a></li>
             <li><a class="dropdown-item" href="#">Apps</a></li>
-            <li><a class="dropdown-item" href="/fitur">Sign Out</a></li>
+            <li>
+              <form action="/logout" method="post">
+                @csrf
+                <button type="submit" class="dropdown-item"><i class="bibi-box-arrow-right"></i>Sign Out</button>
+              </form>
+            </li>
           </ul>
         </li>
       </ul>

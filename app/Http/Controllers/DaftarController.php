@@ -29,7 +29,6 @@ class DaftarController extends Controller
         //$validateData['password'] = bcrypt($validateData['password']);
         //encripsi password
         $validateData['password'] = Hash::make($validateData['password']);
-
         
         User::create($validateData);
         $request->session()->flash('berhasil', 'Berhasil terdaftar! Silahkan Login');

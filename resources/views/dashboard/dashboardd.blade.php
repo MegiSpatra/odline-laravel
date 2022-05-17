@@ -2,7 +2,9 @@
 @extends('layoutd.main')
 
 @section('dashboard-container')
-<h1>Hi, Megi Saputra</h1>
+@auth
+<h1>Hi, {{ auth()->user()->name }}</h1>
+@endauth
 <main class="form-home">
   <form class="mt-5">
     <div class="container text-white">
@@ -79,6 +81,7 @@
     </div>
   </div>
 </div>
+
 
 @endsection
 
