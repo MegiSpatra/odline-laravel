@@ -49,7 +49,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ ($active === "orderonline.addproduk") ? 'active' : ''}} " href="/produk"><button type="button" class="btn btn-warning btn-sm">Add Product</button></a>
+          <a class="nav-link {{ ($active === "orderonline.addproduk") ? 'active' : ''}} " href="/product"><button type="button" class="btn btn-warning btn-sm">Add Product</button></a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ ($active === "orderonline.dashboard") ? 'active' : ''}} " aria-current="page" href="/dashboard"><i class="bi bi-bell-fill"></i></a>
