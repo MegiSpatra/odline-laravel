@@ -2,6 +2,7 @@
 @section('dashboard-container')
 
     <body>
+        <h1>memek</h1>
         <h2 class="container text-white ">Account</h2>
 
             <div class="card mt-4" style="width: 18rem;">
