@@ -3,7 +3,7 @@
 
 @section('dashboard-container')
 @auth
-<h1>Hi, {{ auth()->user()->name }}</h1>
+<h1>Hi, Selamat Datang, {{ auth()->user()->name }}</h1>
 @endauth
 <main class="form-home">
   <form class="mt-5">
