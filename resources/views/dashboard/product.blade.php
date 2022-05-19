@@ -29,9 +29,7 @@
     
   <div>
     <div class="btn-group mt-3">
-      <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">
-        Add Product
-      </button>
+      <a href="addproduct"><button type="button" class="btn btn-outline-warning btn-sm">Add product</button></a>
     </div>
     <div class="btn-group mt-3">
       <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">

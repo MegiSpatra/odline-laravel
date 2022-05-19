@@ -53,7 +53,7 @@
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>                                                         </div>
+                                                              </div>                           
                                                               <div class="form-floating">
                                                                 <input type="text" name="NoTelephone" class="form-control @error('NoTelephone') is-invalid @enderror" id="NoTelephone" placeholder="NoTelephone" required value="{{ old('NoTelephone') }}">
                                                                 <label for="username">No. Telephone</label>
