@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Member;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -19,7 +21,9 @@ class MemberController extends Controller
         $data['title'] = 'team-members';
         $data['active'] = 'team-members';
         $data['q'] = $request->q;
-        $data['rows'] = Member::where('name', 'like', '%' . $request->q . '%')->get();
+        $data['rows'] = User::find(Auth::user()->id)->member;
+        //dd($data['rows']);
+        //$data['rows'] = Member::where('name', 'like', '%' . $request->q . '%')->get();
         return view('dashboard.team-members.index', $data);
     }
 
@@ -44,13 +48,16 @@ class MemberController extends Controller
             'email' => 'required|unique:members',
             'password' => 'required',
             'level' => 'required',
-        ]);
 
+        ]);
+        $id=Auth::user()->id;
+        // dd($id, $request->all());
         $member = new Member();
         $member->name = $request->name;
         $member->email = $request->email;
         $member->password = Hash::make($request->password);
         $member->level = $request->level;
+        $member->users = $id;
         $member->save();
         return redirect('team-members')->with('success', 'Tambah Data Berhasil');
     }
@@ -102,8 +109,9 @@ class MemberController extends Controller
         if ($request->password)
             $member->password = Hash::make($request->password);
         $member->level = $request->level;
-        $member->save();
-        return redirect('team-members')->with('success', 'Ubah Data Berhasil');
+       $member->save();
+       
+         return redirect('team-members')->with('success', 'Ubah Data Berhasil');
     }
 
     /**

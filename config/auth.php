@@ -18,6 +18,12 @@ return [
         'passwords' => 'users',
     ],
 
+    // 'defaults'=> [
+    //     'guart'=>'members',
+    //     'passwords' => 'memberss',
+    // ],
+
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -41,16 +47,22 @@ return [
             'provider' => 'users',
         ],
 
+        // 'user' => [
+        //     'driver' => 'session',
+        //     'provider' => 'users',
+
+        // ],
+        
+        'members' => [
+           'driver' => 'session',
+           'provider' => 'memberss'
+        ], 
+
         // 'api' => [
         //     'driver' => 'token',
         //     'provider' => 'residents',
         //     'hash' => false,
         // ],
-
-        'members' => [
-            'driver' => 'session',
-            'provider' => 'memberss'
-        ], 
 
         // 'user' => [
         //     'driver' => 'session',

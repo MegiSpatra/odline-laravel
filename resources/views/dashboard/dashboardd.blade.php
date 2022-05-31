@@ -2,6 +2,7 @@
 @extends('layoutd.main')
 
 @section('dashboard-container')
+<<<<<<< HEAD
 @auth
 <h1>Hi, Selamat Datang, {{ auth()->user()->name }}</h1>
 @endauth
@@ -24,62 +25,77 @@
     </div>
   </form>
 </main>
+=======
+>>>>>>> 3acef4ac0f92bc729fec081c8f2c3b2cbc31440c
 
-<div  class="text-center mt-5 text-white">
-  <h2>Aplikasi ini adakahberbasis Web yang memudahkan Anda Untuk melakukan transaksi jual beli dengan praktis</h2>
-  <h1 class="mt-5">Proses Penjualan Dengan Satu Akun</h1>
+<div class="row mt-5">
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>  
 </div>
-
-
-<div class="row row-cols-1 row-cols-md-3 g-4 mt-2">
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+<div class="row mt-5">
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
   </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
-      </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>  
+</div>
+<div class="row mt-5">
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
   </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>
+  <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card-body text-success">
+      <h5 class="card-title">Success card title</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+    <div class="card-footer bg-transparent border-success">Footer</div>
+  </div>  
 </div>
 
 

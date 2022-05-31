@@ -29,9 +29,13 @@
     
   <div>
     <div class="btn-group mt-3">
+<<<<<<< HEAD
       <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">
         Add Product
       </button>
+=======
+      <a href="addproduct"><button type="button" class="btn btn-outline-warning btn-sm">Add product</button></a>
+>>>>>>> 3acef4ac0f92bc729fec081c8f2c3b2cbc31440c
     </div>
     <div class="btn-group mt-3">
       <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">

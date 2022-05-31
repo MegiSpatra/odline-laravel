@@ -2,10 +2,9 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMembersTable extends Migration
+class CreateOrdersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,16 @@ class CreateMembersTable extends Migration
      */
     public function up()
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id('id');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->string('level');
-            $table->string('users');
+            $table->string('city');
+            $table->string('status');
+            $table->string('payment status');
+            $table->string('date');
+            $table->string('gross revenue');
+            $table->string('follow_up');
+            $table->string('actions');
             $table->timestamps();
         });
     }
@@ -32,6 +34,6 @@ class CreateMembersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('orders');
     }
 }

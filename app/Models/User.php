@@ -33,7 +33,7 @@ class User extends Authenticatable
 
     public function member()
     {
-        return $this->hasMany(Member::class);
+        return $this->hasMany(Member::class, 'users','id');
     }
 
     /**
