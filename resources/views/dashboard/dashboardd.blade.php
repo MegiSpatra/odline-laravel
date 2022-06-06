@@ -2,7 +2,6 @@
 @extends('layoutd.main')
 
 @section('dashboard-container')
-<<<<<<< HEAD
 @auth
 <h1>Hi, Selamat Datang, {{ auth()->user()->name }}</h1>
 @endauth
@@ -25,8 +24,6 @@
     </div>
   </form>
 </main>
-=======
->>>>>>> 3acef4ac0f92bc729fec081c8f2c3b2cbc31440c
 
 <div class="row mt-5">
   <div class="card border-success mb-3" style="max-width: 18rem;">

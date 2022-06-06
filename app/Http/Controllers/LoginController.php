@@ -49,11 +49,11 @@ class LoginController extends Controller
         }
     }
     public function logout() {
-        // if (Auth::guard('web')->check()) {
-        //     Auth::guard('web')->logout();
-        // } elseif (Auth::guard('memberss')->check()) {
-        //     Auth::guard('memberss')->logout();
-        // }
+        if (Auth::guard('web')->check()) {
+            Auth::guard('web')->logout();
+        } elseif (Auth::guard('members')->check()) {
+            Auth::guard('members')->logout();
+        }
         Session::remove('user');
         Session::remove('member');
         return redirect('/');

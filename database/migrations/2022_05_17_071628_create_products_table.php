@@ -21,9 +21,9 @@ class CreateProductsTable extends Migration
             $table->string('inventory');
             $table->string('order');
             $table->string('paid');
-            $table->string('paid ratio');
-            $table->string('qty sold');
-            $table->string('net revenue');
+            $table->string('paidratio');
+            $table->string('qtysold');
+            $table->string('netrevenue');
             $table->timestamps();
         });
     }

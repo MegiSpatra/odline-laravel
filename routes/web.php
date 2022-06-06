@@ -1,15 +1,15 @@
 <?php
 
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MemberController;
-use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamemberController;
-use GuzzleHttp\Middleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -97,7 +97,8 @@ Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 //Route::resource('team-members', UserController::class);
 
 Route::resource('team-members', MemberController::class);
-Route::resource('product', ProdukController::class);
+Route::resource('product', ProductController::class);
+Route::post('product', [ProductController::class, 'store']);
 
 //Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');

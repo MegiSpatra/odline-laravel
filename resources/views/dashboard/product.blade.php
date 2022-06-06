@@ -26,16 +26,9 @@
       <div class="card-footer bg-transparent border-success">Footer</div>
     </div>  
   </div>
-    
   <div>
     <div class="btn-group mt-3">
-<<<<<<< HEAD
-      <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">
-        Add Product
-      </button>
-=======
       <a href="addproduct"><button type="button" class="btn btn-outline-warning btn-sm">Add product</button></a>
->>>>>>> 3acef4ac0f92bc729fec081c8f2c3b2cbc31440c
     </div>
     <div class="btn-group mt-3">
       <button class="btn btn-outline-warning btn-sm " type="button"  data-bs-toggle="dropdown" aria-expanded="false">
@@ -71,22 +64,39 @@
   </div>
   </div>
 
+
   <div class="card-body p-0 table-responsive">
-    <table class="table table-bordered table-striped table-dark table-hover mb-0 mt-3">
+    <table class="table table-bordered table-striped table-dark table-hover mb-0">
         <thead>
             <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>COGS</th>
-                <th>Inventory</th>
-                <th>Order</th>
-                <th>Paid</th>
-                <th>paid Ratio</th>
-                <th>Qty Sold</th>
-                <th>Net Revenue</th>
+              <th>id</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>COGS</th>
+              <th>Inventory</th>
+              <th>Order</th>
+              <th>Paid</th>
+              <th>paid Ratio</th>
+              <th>Qty Sold</th>
+              <th>Net Revenue</th>
             </tr>
-        </thead> 
+        </thead>
+        <?php $id = 1; ?>
+        
+        @foreach ($rows as $row)
+            <tr>
+                <td>{{ $id++ }}</td>
+                <td>{{ $row->name }}</td>
+                <td>{{ $row->price }}</td>
+                <td>{{ $row->COGS }}</td>
+                <td>{{ $row->inventory }}</td>
+                <td>{{ $row->order }}</td>
+                <td>{{ $row->paid }}</td>
+                <td>{{ $row->paidratio }}</td>
+                <td>{{ $row->qtyratio }}</td>
+                <td>{{ $row->netrevenue }}</td>
+            </tr>
+        @endforeach
     </table>
 </div>
 </body>

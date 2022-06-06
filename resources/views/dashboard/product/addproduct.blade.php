@@ -25,7 +25,7 @@
                               @enderror
                           </div>
                             <div class="form-floating">
-                              <input type="text" name="Price" class="form-control @error('Price') is-invalid @enderror" id="price" placeholder="price" required value="{{ old('price') }}">
+                              <input type="text" name="Price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="price" required value="{{ old('price') }}">
                               <label for="price">Price</label>
                               @error('price')
                               <div class="invalid-feedback">
@@ -70,36 +70,34 @@
                             @enderror
                           </div>
                           <div class="form-floating">
-                            <input type="text" name="paid ratio" class="form-control @error('paid ratio') is-invalid @enderror" id="paid ratio" placeholder="paid ratio" required value="{{ old('paid ratio') }}">
-                            <label for="paid ratio">Paid Ratio</label>
-                            @error('paid ratio')
+                            <input type="text" name="paidratio" class="form-control @error('paidratio') is-invalid @enderror" id="paidratio" placeholder="paidratio" required value="{{ old('paidratio') }}">
+                            <label for="paidratio">Paid Ratio</label>
+                            @error('paidratio')
                             <div class="invalid-feedback">
                                 {{ $message }}
                               </div>                    
                             @enderror
                           </div>
                           <div class="form-floating">
-                            <input type="text" name="qty sold" class="form-control @error('qty sold') is-invalid @enderror" id="qty sold" placeholder="qty sold" required value="{{ old('qty sold') }}">
-                            <label for="qty sold">Qty Sold</label>
-                            @error('qty sold')
+                            <input type="text" name="qtysold" class="form-control @error('qtysold') is-invalid @enderror" id="qtysold" placeholder="qtysold" required value="{{ old('qtysold') }}">
+                            <label for="qtysold">Qty Sold</label>
+                            @error('qtysold')
                             <div class="invalid-feedback">
                                 {{ $message }}
                               </div>                    
                             @enderror
                           </div>
                           <div class="form-floating">
-                            <input type="text" name="net revenue" class="form-control @error('net revenue') is-invalid @enderror" id="net revenue" placeholder="net Revenue" required value="{{ old('net revenue') }}">
-                            <label for="net revenue">Net Revenue</label>
-                            @error('net revenue')
+                            <input type="text" name="netrevenue" class="form-control @error('netrevenue') is-invalid @enderror" id="netrevenue" placeholder="netRevenue" required value="{{ old('netrevenue') }}">
+                            <label for="netrevenue">Net Revenue</label>
+                            @error('netrevenue')
                             <div class="invalid-feedback">
                                 {{ $message }}
                               </div>                    
                             @enderror
                           </div>
                           <div class="text-right mb-3 mt-3">
-                            <a href="product">
-                            <button type="submit"
-                                class="btn btn-primary btn-lg">Lanjutkan</button></a>
+                            <a href="product"><button type="submit" class="btn btn-primary btn-lg">Lanjutkan</button></a>
                         </div>
                       </div>
                   </div>
