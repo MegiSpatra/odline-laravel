@@ -97,7 +97,7 @@ Route::middleware(['auth:members', 'auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/profile', [ProfileController::class, 'index']);
 });
-Route::resource('team-members', UserController::class);
+//Route::resource('team-members', UserController::class);
 
 
 Route::resource('team-members', MemberController::class);
