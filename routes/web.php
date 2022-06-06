@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TeamemberController;
@@ -72,6 +73,12 @@ Route::get('addmember', function () {
         "active" => "addmember"
     ]);
 });
+Route::get('addproduct', function () {
+    return view('dashboard.product.addproduct',[
+        "title" => "addproduct",
+        "active" => "addproduct"
+    ]);
+});
 
 
 
@@ -82,14 +89,19 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/daftar', [DaftarController::class, 'index'])->middleware('guest');
 Route::post('/daftar', [DaftarController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+//Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+//Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
+Route::middleware(['auth:members', 'auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index']);
+    Route::get('/profile', [ProfileController::class, 'index']);
+});
+Route::resource('team-members', UserController::class);
 
-//Route::resource('team-members', UserController::class);
 
 Route::resource('team-members', MemberController::class);
+Route::resource('product', ProdukController::class);
 
 //Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
