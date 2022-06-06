@@ -8,9 +8,9 @@
                 <h4>You Can Add Team Members </h4>
             </div>
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
-                <a href="addmember"><button type="button" class="btn btn-outline-warning btn-lg"> Member
+                <a href="#"><button type="button" class="btn btn-outline-warning btn-lg"> Member
                         Rotators</button></a>
-                <a href="addmember"><button type="button" class="btn btn-outline-warning btn-lg">View Team
+                <a href="#"><button type="button" class="btn btn-outline-warning btn-lg">View Team
                         Performance</button></a>
                 <a href="addmember"><button type="button" class="btn btn-outline-warning btn-lg">Add New Member</button></a>
             </div>
