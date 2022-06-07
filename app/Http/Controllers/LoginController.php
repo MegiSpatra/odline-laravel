@@ -37,5 +37,6 @@ class LoginController extends Controller
             Auth::guard('memberss')->logout();
         }
         return redirect('/');
+        
     }
 }
