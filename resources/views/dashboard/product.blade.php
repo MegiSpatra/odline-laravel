@@ -69,31 +69,31 @@
     <table class="table table-bordered table-striped table-dark table-hover mb-0">
         <thead>
             <tr>
-              <th>id</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>COGS</th>
-              <th>Inventory</th>
-              <th>Order</th>
-              <th>Paid</th>
-              <th>paid Ratio</th>
-              <th>Qty Sold</th>
-              <th>Net Revenue</th>
+                <th>no</th>
+                <th>name</th>
+                <th>price</th>
+                <th>COGS</th>
+                <th>iventory</th>
+                <th>order</th>
+                <th>paid</th>
+                <th>paidratio</th>
+                <th>qtysold</th>
+                <th>netrevenue</th>
             </tr>
         </thead>
-        <?php $id = 1; ?>
+        <?php $no = 1; ?>
         
         @foreach ($rows as $row)
             <tr>
-                <td>{{ $id++ }}</td>
+                <td>{{ $no++ }}</td>
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->price }}</td>
                 <td>{{ $row->COGS }}</td>
-                <td>{{ $row->inventory }}</td>
+                <td>{{ $row->iventory }}</td>
                 <td>{{ $row->order }}</td>
                 <td>{{ $row->paid }}</td>
                 <td>{{ $row->paidratio }}</td>
-                <td>{{ $row->qtyratio }}</td>
+                <td>{{ $row->qtysold }}</td>
                 <td>{{ $row->netrevenue }}</td>
             </tr>
         @endforeach

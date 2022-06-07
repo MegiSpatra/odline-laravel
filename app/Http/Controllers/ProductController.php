@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -16,10 +18,12 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-        $data['title'] = 'addproduct';
-        $data['active'] = 'addproduct';
+        $data['title'] = 'product';
+        $data['active'] = 'product';
         $data['q'] = $request->q;
-        $data['rows'] = Product::where('name', 'like', '%' . $request->q . '%')->get();
+        $data['rows'] = User::find(Auth::user()->id)->member;
+        //dd($data['rows']);
+        //$data['rows'] = Member::where('name', 'like', '%' . $request->q . '%')->get();
         return view('dashboard.product', $data);
     }
 
@@ -41,19 +45,28 @@ class ProductController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'COGS' => 'required',
+            'iventory' => 'required',
+            'order' => 'required',
+            'paid' => 'required',
+            'paidratio' => 'required',
+            'qtysold' => 'required',
+            'netrevenue' => 'required'
         ]);
-
+       
+         
         $product = new Product();
         $product->name = $request->name;
         $product->price = $request->price;
         $product->COGS = $request->COGS;
-        $product->inventory = $request->inventory;
+        $product->iventory = $request->iventory;
         $product->order = $request->order;
         $product->paid = $request->paid;
         $product->paidratio = $request->paidratio;
         $product->qtysold = $request->qtysold;
         $product->netrevenue = $request->netrevenue;
+        //  dd( $request->all());
         $product->save();
         return redirect('product')->with('success', 'Tambah Data Berhasil');
     }
@@ -76,14 +89,14 @@ class ProductController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    // public function edit(Product $product)
-    // {
-    //     $data['title'] = 'Ubah User';
-    //     $data['active'] = 'Ubah User';
-    //     $data['row'] = $product;
-    //     $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
-    //     return view('dashboard.team-members.edit', $data);
-    // }
+    public function edit(Product $product)
+    {
+        $data['title'] = 'Ubah User';
+        $data['active'] = 'Ubah User';
+        $data['row'] = $product;
+        $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
+        return view('dashboard.team-members.edit', $data);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -92,6 +105,23 @@ class ProductController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
+    public function update(Request $request, Product $product)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'level' => 'required',
+        ]);
+
+        $product->name = $request->name;
+        $product->email = $request->email;
+        if ($request->password)
+            $product->password = Hash::make($request->password);
+        $product->level = $request->level;
+       $product->save();
+       
+         return redirect('team-members')->with('success', 'Ubah Data Berhasil');
+    }
 
     /**
      * Remove the specified resource from storage.
