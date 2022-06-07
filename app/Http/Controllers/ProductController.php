@@ -21,9 +21,9 @@ class ProductController extends Controller
         $data['title'] = 'product';
         $data['active'] = 'product';
         $data['q'] = $request->q;
-        $data['rows'] = User::find(Auth::user()->id)->member;
+        // $data['rows'] = User::find(Auth::user()->id)->member;
         //dd($data['rows']);
-        //$data['rows'] = Member::where('name', 'like', '%' . $request->q . '%')->get();
+        $data['rows'] = Product::where('name', 'like', '%' . $request->q . '%')->get();
         return view('dashboard.product', $data);
     }
 
@@ -47,9 +47,7 @@ class ProductController extends Controller
             'name' => 'required',
             'price' => 'required',
             'COGS' => 'required',
-            'iventory' => 'required',
             'order' => 'required',
-            'paid' => 'required',
             'paidratio' => 'required',
             'qtysold' => 'required',
             'netrevenue' => 'required'
@@ -60,9 +58,8 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->COGS = $request->COGS;
-        $product->iventory = $request->iventory;
+        $product->inventory = $request->inventory;
         $product->order = $request->order;
-        $product->paid = $request->paid;
         $product->paidratio = $request->paidratio;
         $product->qtysold = $request->qtysold;
         $product->netrevenue = $request->netrevenue;

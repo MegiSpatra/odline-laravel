@@ -73,9 +73,8 @@
                 <th>name</th>
                 <th>price</th>
                 <th>COGS</th>
-                <th>iventory</th>
+                <th>inventory</th>
                 <th>order</th>
-                <th>paid</th>
                 <th>paidratio</th>
                 <th>qtysold</th>
                 <th>netrevenue</th>
@@ -89,9 +88,8 @@
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->price }}</td>
                 <td>{{ $row->COGS }}</td>
-                <td>{{ $row->iventory }}</td>
+                <td>{{ $row->inventory }}</td>
                 <td>{{ $row->order }}</td>
-                <td>{{ $row->paid }}</td>
                 <td>{{ $row->paidratio }}</td>
                 <td>{{ $row->qtysold }}</td>
                 <td>{{ $row->netrevenue }}</td>

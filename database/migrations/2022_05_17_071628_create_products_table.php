@@ -20,7 +20,6 @@ class CreateProductsTable extends Migration
             $table->string('COGS');
             $table->string('inventory');
             $table->string('order');
-            $table->string('paid');
             $table->string('paidratio');
             $table->string('qtysold');
             $table->string('netrevenue');

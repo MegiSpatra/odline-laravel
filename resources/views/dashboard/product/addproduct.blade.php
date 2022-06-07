@@ -53,29 +53,20 @@
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>                           
+                                                              </div>                   
                                                               <div class="form-floating">
-                                                                <input type="text" name="iventory" class="form-control @error('iventory') is-invalid @enderror" id="iventory" placeholder="iventory" required value="{{ old('iventory') }}">
-                                                                <label for="iventory">iventory</label>
-                                                                @error('iventory')
+                                                                <input type="text" name="inventory" class="form-control @error('inventory') is-invalid @enderror rounded-bottom" id="inventory" placeholder="inventory" required value="{{ old('inventory') }}">
+                                                                <label for="inventory">inventory</label>
+                                                                @error('inventory')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>
+                                                              </div>                   
                                                               <div class="form-floating">
                                                                 <input type="text" name="order" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="order" required value="{{ old('order') }}">
                                                                 <label for="order">order</label>
                                                                 @error('order')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                  </div>                    
-                                                                @enderror
-                                                              </div>
-                                                              <div class="form-floating">
-                                                                <input type="text" name="paid" class="form-control @error('paid') is-invalid @enderror" id="paid" placeholder="paid" required value="{{ old('paid') }}">
-                                                                <label for="paid">paid</label>
-                                                                @error('paid')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                   </div>                    

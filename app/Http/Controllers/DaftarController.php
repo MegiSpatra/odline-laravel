@@ -20,7 +20,7 @@ class DaftarController extends Controller
     {
        $validateData = $request->validate([
             'name'=> 'required|max:255',
-            'email' => 'required|email:dns|unique:users',
+            'email' => 'required|unique:users',
             'username' => 'required|min:4|max:255',
             'NoTelephone' => 'required|min:10|max:14',
             'password' => 'required|min:8|max:255',
