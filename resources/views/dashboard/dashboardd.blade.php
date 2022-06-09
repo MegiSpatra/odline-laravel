@@ -71,30 +71,34 @@
     <div class="card-footer bg-transparent border-success">Footer</div>
   </div>  
 </div>
-<div class="row mt-5">
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-body text-success">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <div class="card-footer bg-transparent border-success">Footer</div>
-  </div>
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-body text-success">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <div class="card-footer bg-transparent border-success">Footer</div>
-  </div>
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-body text-success">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <div class="card-footer bg-transparent border-success">Footer</div>
-  </div>  
+
+<div class="card-body p-0 table-responsive">
+  <table class="table table-bordered table-striped table-dark table-hover mb-0">
+      <?php $no = 1; ?>
+      
+      @foreach ($rows as $row)
+          <tr>
+              <td>{{ $no++ }}</td>
+              <td>{{ $row->name }}</td>
+              <td>
+              <ul>{{ $row->price }}</ul>
+              <ul>price</ul>
+              </td>
+              <td><ul>{{ $row->order }}</ul>
+              <ul>Order</ul>
+              </td>
+              <td><ul>{{ $row->inventory }}</ul>
+              <ul>Inventory</ul>
+              </td>
+              <td><ul>{{ $row->paidratio }}</ul>
+              <ul>Paid Ratio</ul>
+              </td>
+              <td><ul>{{ $row->netrevenue }}</ul>
+              <ul>Net Revenue</ul>
+              </td>
+          </tr>
+      @endforeach
+  </table>
 </div>
-
-
 @endsection
 
