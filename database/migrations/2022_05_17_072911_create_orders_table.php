@@ -18,9 +18,9 @@ class CreateOrdersTable extends Migration
             $table->string('name');
             $table->string('city');
             $table->string('status');
-            $table->string('payment status');
+            $table->string('paymentstatus');
             $table->string('date');
-            $table->string('gross revenue');
+            $table->string('grossrevenue');
             $table->string('follow_up');
             $table->string('actions');
             $table->timestamps();

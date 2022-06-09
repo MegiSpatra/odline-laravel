@@ -4,6 +4,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProductController;
@@ -79,6 +80,12 @@ Route::get('addproduct', function () {
         "active" => "addproduct"
     ]);
 });
+Route::get('inputorder', function () {
+    return view('dashboard.order.inputorder',[
+        "title" => "inputorder",
+        "active" => "inputoorder"
+    ]);
+});
 
 
 
@@ -103,6 +110,7 @@ Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
 
 Route::resource('team-members', MemberController::class);
 Route::resource('product', ProductController::class);
+Route::resource('orders', OrderController::class);
 
 
 //Route::get('/team-members', [TeamemberController::class,]);

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
-use App\Http\Requests\StoreorderRequest;
-use App\Http\Requests\UpdateorderRequest;
+use Illuminate\Http\Request;
+
+
 
 class OrderController extends Controller
 {
@@ -13,9 +14,15 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $data['title'] = 'orders';
+        $data['active'] = 'orders';
+        $data['q'] = $request->q;
+        // $data['rows'] = User::find(Auth::user()->id)->member;
+        //dd($data['rows']);
+        $data['rows'] = Order::where('name', 'like', '%' . $request->q . '%')->get();
+        return view('dashboard.orders', $data);
     }
 
     /**
@@ -23,64 +30,79 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
 
+
+   
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreorderRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreorderRequest $request)
+    public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'city' => 'required',
+            'status' => 'required',
+            'paymentstatus' => 'required',
+            'date' => 'required',
+            'grossrevenue' => 'required',
+            'follow_up' => 'required',
+            'actions' => 'required'
+        ]);
+         
+        $order = new Order();
+        $order->name = $request->name;
+        $order->city = $request->city;
+        $order->status = $request->status;
+        $order->paymentstatus = $request->paymentstatus;
+        $order->date = $request->date;
+        $order->grossrevenue = $request->grossrevenue;
+        $order->follow_up = $request->follow_up;
+        $order->actions = $request->actions;
+        //  dd( $request->all());
+        $order->save();
+        return redirect('orders')->with('success', 'Tambah Data Berhasil');
     }
+
+
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(order $order)
+    public function show(Order $order)
     {
-        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(order $order)
-    {
-        //
-    }
-
+  
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateorderRequest  $request
-     * @param  \App\Models\order  $order
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateorderRequest $request, order $order)
-    {
-        //
-    }
+
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\order  $order
+     * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(order $order)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+        return redirect('orders')->with('success', 'Hapus Data Berhasil');
     }
 }

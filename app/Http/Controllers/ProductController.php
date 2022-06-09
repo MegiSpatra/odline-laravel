@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
+
 
 
 class ProductController extends Controller
@@ -86,15 +84,7 @@ class ProductController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
-    {
-        $data['title'] = 'Ubah User';
-        $data['active'] = 'Ubah User';
-        $data['row'] = $product;
-        $data['levels'] = ['admin' => 'Admin', 'user' => 'User'];
-        return view('dashboard.team-members.edit', $data);
-    }
-
+  
     /**
      * Update the specified resource in storage.
      *
@@ -102,23 +92,7 @@ class ProductController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
-    {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'level' => 'required',
-        ]);
 
-        $product->name = $request->name;
-        $product->email = $request->email;
-        if ($request->password)
-            $product->password = Hash::make($request->password);
-        $product->level = $request->level;
-       $product->save();
-       
-         return redirect('team-members')->with('success', 'Ubah Data Berhasil');
-    }
 
     /**
      * Remove the specified resource from storage.

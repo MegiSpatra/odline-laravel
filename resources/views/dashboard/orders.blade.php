@@ -44,11 +44,9 @@
     </div>  
   </div>
 
-  <div class="btn-group mt-3">
-    <button class="btn btn-outline-warning btn-lg " type="button"  data-bs-toggle="dropdown" aria-expanded="false">
-      Imput Orders
-    </button>
-  </div>
+    <div class="btn-group mt-3">
+      <a href="inputorder"><button type="button" class="btn btn-outline-warning btn-lg">input order</button></a>
+    </div>
   <div class="btn-group mt-3">
     <button class="btn btn-outline-warning btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
       Exsport
@@ -121,20 +119,35 @@
   </div>
 
   <div class="card-body p-0 table-responsive">
-    <table class="table table-bordered table-striped table-dark table-hover mb-0 mt-3">
+    <table class="table table-bordered table-striped table-dark table-hover mb-0">
         <thead>
             <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>City</th>
-                <th>Status</th>
-                <th>Payment status</th>
-                <th>Date</th>
-                <th>Gross Revenue</th>
-                <th>Follow-up</th>
-                <th>Actions</th>
+                <th>no</th>
+                <th>name</th>
+                <th>city</th>
+                <th>status</th>
+                <th>paymentstatus</th>
+                <th>date</th>
+                <th>grossrevenue</th>
+                <th>follow_up</th>
+                <th>actions</th>
             </tr>
-        </thead> 
+        </thead>
+        <?php $no = 1; ?>
+        
+        @foreach ($rows as $row)
+            <tr>
+                <td>{{ $no++ }}</td>
+                <td>{{ $row->name }}</td>
+                <td>{{ $row->city }}</td>
+                <td>{{ $row->status }}</td>
+                <td>{{ $row->paymentstatus }}</td>
+                <td>{{ $row->date }}</td>
+                <td>{{ $row->grossrevenue }}</td>
+                <td>{{ $row->follow_up }}</td>
+                <td>{{ $row->actions }}</td>
+            </tr>
+        @endforeach
     </table>
 </div>
   
