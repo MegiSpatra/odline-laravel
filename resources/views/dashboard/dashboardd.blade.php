@@ -2,6 +2,8 @@
 @extends('layoutd.main')
 
 @section('dashboard-container')
+
+  
 @auth
 <h1>Hi, Selamat Datang, {{ auth()->user()->name }}</h1>
 @endauth
@@ -24,6 +26,25 @@
     </div>
   </form>
 </main>
+
+<h1>Revenue</h1>
+
+<div class="row">
+  <div class="#barchart">
+    <form>
+  <div class="col-lg-6">
+    <div class="card">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <div id="barchart"></div>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+
+
 
 <div class="row mt-5">
   <div class="card border-success mb-3" style="max-width: 18rem;">
