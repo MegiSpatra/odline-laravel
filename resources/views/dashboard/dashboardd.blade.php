@@ -28,7 +28,6 @@
 </main>
 
 <h1>Revenue</h1>
-
 <div class="row">
   <div class="#barchart">
     <form>
@@ -43,7 +42,6 @@
 </form>
 </div>
 </div>
-
 
 
 <div class="row mt-5">
