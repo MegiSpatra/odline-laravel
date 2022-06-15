@@ -21,7 +21,7 @@ class OrderController extends Controller
         $data['q'] = $request->q;
         // $data['rows'] = User::find(Auth::user()->id)->member;
         //dd($data['rows']);
-        $data['rows'] = Order::where('name', 'like', '%' . $request->q . '%')->get();
+        $data['cols'] = Order::where('name', 'like', '%' . $request->q . '%')->get();
         return view('dashboard.orders', $data);
     }
 
@@ -53,6 +53,7 @@ class OrderController extends Controller
         ]);
          
         $order = new Order();
+        $order->id_orders = $request->id_orders;
         $order->name = $request->name;
         $order->city = $request->city;
         $order->status = $request->status;

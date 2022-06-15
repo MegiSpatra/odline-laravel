@@ -99,6 +99,7 @@ Route::post('/daftar', [DaftarController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
 Route::get('/profile', [ProfileController::class, 'index'])->middleware('auth');
+Route::get('/orders', [OrderController::class, 'index'])->middleware('auth');
 
 // Route::middleware(['auth:members', 'auth'])->group(function () {
 //     Route::get('/dashboard', [DashboardController::class, 'index']);

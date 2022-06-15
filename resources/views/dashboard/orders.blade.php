@@ -135,17 +135,17 @@
         </thead>
         <?php $no = 1; ?>
         
-        @foreach ($rows as $row)
+        @foreach ($cols as $col)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $row->name }}</td>
-                <td>{{ $row->city }}</td>
-                <td>{{ $row->status }}</td>
-                <td>{{ $row->paymentstatus }}</td>
-                <td>{{ $row->date }}</td>
-                <td>{{ $row->grossrevenue }}</td>
-                <td>{{ $row->follow_up }}</td>
-                <td>{{ $row->actions }}</td>
+                <td>{{ $col->name }}</td>
+                <td>{{ $col->city }}</td>
+                <td>{{ $col->status }}</td>
+                <td>{{ $col->paymentstatus }}</td>
+                <td>{{ $col->date }}</td>
+                <td>{{ $col->grossrevenue }}</td>
+                <td>{{ $col->follow_up }}</td>
+                <td>{{ $col->actions }}</td>
             </tr>
         @endforeach
     </table>

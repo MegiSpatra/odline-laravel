@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -20,6 +21,7 @@ class DashboardController extends Controller
        $data['active'] = 'dashboard';
        $data['q'] = $request->q;
      $data['rows'] = Product::where('name', 'like', '%' . $request->q . '%')->get();
+     $data['cols'] = Order::where('name', 'like', '%' . $request->q . '%')->get();
        return view('dashboard.dashboardd', $data);
    }
 
