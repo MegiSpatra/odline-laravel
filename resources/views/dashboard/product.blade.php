@@ -4,27 +4,28 @@
 <body>
 <h2 class="container text-white">PRODUCT</h2>
 <div class="row mt-3">
-    <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card border-success mb-3" style="max-width: 18rem; left: 1rem;">
       <div class="card-body text-success">
-        <h5 class="card-title">Success card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">gatau</h5>
+        <p class="card-text"></p>
       </div>
-      <div class="card-footer bg-transparent border-success">Footer</div>
+      <div class="card-footer bg-transparent border-success"></div>
     </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card border-success mb-3" style="max-width: 18rem; left: 3rem;">
       <div class="card-body text-success">
-        <h5 class="card-title">Success card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">gatau</h5>
+        <p class="card-text"></p>
       </div>
-      <div class="card-footer bg-transparent border-success">Footer</div>
+      <div class="card-footer bg-transparent border-success"></div>
     </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
+    <div class="card border-success mb-3" style="max-width: 18rem; left: 6rem;">
       <div class="card-body text-success">
-        <h5 class="card-title">Success card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <h5 class="card-title">gatau</h5>
+        <p class="card-text"></p>
       </div>
-      <div class="card-footer bg-transparent border-success">Footer</div>
-    </div>  
+      <div class="card-footer bg-transparent border-success"></div>
+    </div>
+   
   </div>
   <div>
     <div class="btn-group mt-3">

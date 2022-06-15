@@ -3,30 +3,9 @@
 
 @section('dashboard-container')
 
-  
 @auth
 <h1 class="text-white">Hi, Selamat Datang, {{ auth()->user()->name }}</h1>
 @endauth
-<main class="form-home">
-  <form class="mt-5">
-    <div class="container text-white">
-        <div class="row justify-content-between">
-        <div class="col-md-3 d-flex flex-column justify-content-center">
-          <h2>Tingkatkan</h2> 
-          <h2>Penjualan &</h2>
-          <h2>Efektifitas Bisnis</h2>
-          <div class="d-grid gap-2 d-md-block">
-            <a href="/daftar">  <button class="btn btn-secondary mt-4" type="button">Daftar Sekarang</button></a>
-          </div>
-        </div>
-        <div class="col-md-8">
-          <img src="./image/a.jpg"class="img-fluid" alt="Agung Prasetyo"width="1000">
-        </div>
-      </div>
-    </div>
-  </form>
-</main>
-
 <h3 class="text-white container mt-4">Transaksi</h3>
 <div class="row mt-4">
   <div class="card border-success mb-3" style="max-width: 18rem; left: 2rem;">
@@ -43,6 +22,7 @@
       <h2 class="card-title text-center">Total Transaksi</h2>
       <div class="card-footer bg-transparent border-success"></div>
         
+      <h1 class="text-center mt-2"> {{ $cols->count() }}</h5>
     </div>
   </div>
   <div class="card border-success mb-3" style="max-width: 18rem; left:6rem; ">

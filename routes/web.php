@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\MemberController;
+use App\Http\Controllers\UploadController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
@@ -113,6 +114,10 @@ Route::resource('team-members', MemberController::class);
 Route::resource('product', ProductController::class);
 Route::resource('orders', OrderController::class);
 
+
+
+Route::get('/upload', 'UploadController@index')->name('upload');
+Route::post('/save','UploadController@store')->name('upload.store');
 
 //Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');

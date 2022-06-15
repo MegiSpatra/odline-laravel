@@ -64,7 +64,7 @@
                                                                 @enderror
                                                               </div>                                     
                                                               <div class="form-floating">
-                                                                <input type="text" name="date" class="form-control @error('date') is-invalid @enderror" id="date" placeholder="date" required value="{{ old('date') }}">
+                                                                <input type="date" name="date" class="form-control @error('date') is-invalid @enderror" id="date" placeholder="date" required value="{{ old('date') }}">
                                                                 <label for="date">date</label>
                                                                 @error('date')
                                                                 <div class="invalid-feedback">

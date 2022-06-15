@@ -27,15 +27,18 @@
                                                     <div class="card col-lg-4 col-md-12 p-0">
                                                         <div class="card-body box--md">
                                                             <h5 class="mb-4">Member Profile</h5>
+                                                            <label>Nama</label> 
                                                             <div class="form-floating">
                                                                 <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror"
-                                                                id="name" placeholder="name" required value="{{ old('name') }}"><label for="name">Name</label>
+                                                                id="name" placeholder="name" required value="{{ old('name') }}">
+                                                                <label for="name">name</label>
                                                                 @error('name')
                                                                 <div class="invalid-feedback">
-                                                                    {{ $message }}
+                                                                    {{ $message }} 
                                                                   </div>                    
                                                                 @enderror
                                                             </div>
+                                                            <label>Email</label>
                                                             <div class="form-floating">
                                                                 <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="name@example.com" required value="{{ old('email') }}">
                                                                 <label for="email">Alamat Email</label>
@@ -45,6 +48,7 @@
                                                                     </div>                    
                                                                   @enderror
                                                               </div>
+                                                              <label>password</label>
                                                               <div class="form-floating">
                                                                 <input type="password" name="password" class="form-control @error('password') is-invalid @enderror rounded-bottom" id="password" placeholder="password" required value="{{ old('password') }}">
                                                                 <label for="password">Password</label>
@@ -53,7 +57,8 @@
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>                           
+                                                              </div>
+                                                              <label>Telephone</label>                           
                                                               <div class="form-floating">
                                                                 <input type="text" name="NoTelephone" class="form-control @error('NoTelephone') is-invalid @enderror" id="NoTelephone" placeholder="NoTelephone" required value="{{ old('NoTelephone') }}">
                                                                 <label for="username">No. Telephone</label>
@@ -63,15 +68,19 @@
                                                                   </div>                    
                                                                 @enderror
                                                               </div>
-                                                              <div class="form-floating">
-                                                                <input type="text" name="level" class="form-control rounded-top @error('level') is-invalid @enderror"
-                                                                id="level" placeholder="level" required value="{{ old('level') }}"><label for="level">Role</label>
-                                                                @error('level')
-                                                                <div class="invalid-feedback">
-                                                                    {{ $message }}
-                                                                  </div>                    
-                                                                @enderror
-                                                            </div>
+                                                              <label>Role</label> 
+                                                            <select class="form-control" name="level" class="form-control @error('Level') is-invalid @enderror" id="Level" placeholder="Level" required value="{{ old('Level') }}">
+                                                                <label for="Level" required>
+                                                                <option></option>
+                                                                <option>admin</option>
+                                                                <option>user</option>
+                                                            </label>
+                                                            @error('Level')
+                                                            <div class="invalid-feedback">
+                                                                {{ $message }}
+                                                              </div>                    
+                                                            @enderror
+                                                            </select>
                                                         </div>
                                                     </div>
 

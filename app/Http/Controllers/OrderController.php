@@ -101,9 +101,5 @@ class OrderController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
-    {
-        $order->delete();
-        return redirect('orders')->with('success', 'Hapus Data Berhasil');
-    }
+       
 }
