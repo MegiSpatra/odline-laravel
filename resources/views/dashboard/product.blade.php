@@ -71,6 +71,7 @@
         <thead>
             <tr>
                 <th>no</th>
+                <th>gambar</th>
                 <th>name</th>
                 <th>price</th>
                 <th>COGS</th>
@@ -86,6 +87,7 @@
         @foreach ($rows as $row)
             <tr>
                 <td>{{ $no++ }}</td>
+                <td>{{ $row->gambar }}</td>
                 <td>{{ $row->name }}</td>
                 <td>{{ $row->price }}</td>
                 <td>{{ $row->COGS }}</td>

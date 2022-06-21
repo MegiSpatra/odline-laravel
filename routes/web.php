@@ -119,6 +119,8 @@ Route::resource('orders', OrderController::class);
 Route::get('/upload', 'UploadController@index')->name('upload');
 Route::post('/save','UploadController@store')->name('upload.store');
 
+
+
 //Route::get('/team-members', [TeamemberController::class,]);
 //Route::get('/team-members', [TeamemberController::class, 'store'])->name('team-member.store');
 //Route::resource('/team-members', UserController::class);

@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
-
-
+use Symfony\Component\Console\Helper\TableRows;
 
 class ProductController extends Controller
 {
@@ -42,6 +41,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'gambar' => 'required',
             'name' => 'required',
             'price' => 'required',
             'COGS' => 'required',
@@ -53,6 +53,7 @@ class ProductController extends Controller
        
          
         $product = new Product();
+        $product->gambar = $request->gambar;
         $product->name = $request->name;
         $product->price = $request->price;
         $product->COGS = $request->COGS;
@@ -61,7 +62,7 @@ class ProductController extends Controller
         $product->paidratio = $request->paidratio;
         $product->qtysold = $request->qtysold;
         $product->netrevenue = $request->netrevenue;
-        //  dd( $request->all());
+         //dd( $request->all());
         $product->save();
         return redirect('product')->with('success', 'Tambah Data Berhasil');
     }
@@ -100,9 +101,42 @@ class ProductController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
-    {
-        $product->delete();
-        return redirect('product')->with('success', 'Hapus Data Berhasil');
-    }
+    public function proses_upload(Request $request){
+		$product  = Product::create($request->all());
+       if($request->hasFile('gambar')){
+        $request->file('gambar')->move('img/', $request->file('gambar')->getClientOriginalName());
+        $product->gambar = $request->file('gambar')->getClientOriginalName();
+        $product->save();
+       }
+       return redirect()->route ('product')->with('success','Data Berhasil Di Tambahkan');
+
+
+		// // menyimpan data file yang diupload ke variabel $file
+		// $product = $request->gambar('gambar');
+ 
+      	//         // nama file
+		// echo ' Name: '.$product->getClientOriginalName();
+		// echo '<br>';
+ 
+      	//         // ekstensi file
+		// echo 'File Extension: '.$product->getClientOriginalExtension();
+		// echo '<br>';
+ 
+      	//         // real path
+		// echo 'File Real Path: '.$product->getRealPath();
+		// echo '<br>';
+ 
+      	//         // ukuran file
+		// echo 'File Size: '.$product->getSize();
+		// echo '<br>';
+ 
+      	//         // tipe mime
+		// echo 'File Mime Type: '.$product->getMimeType();
+ 
+      	//         // isi dengan nama folder tempat kemana file diupload
+		// $tujuan_upload = 'data_file';
+ 
+        //         // upload file
+		// $product->move($tujuan_upload,$product->getClientOriginalName());
+	}
 }

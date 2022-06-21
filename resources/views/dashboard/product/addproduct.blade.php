@@ -27,15 +27,46 @@
                                                     <div class="card col-lg-4 col-md-12 p-0">
                                                         <div class="card-body box--md">
                                                             <h5 class="mb-4">Product</h5>
+
+                                                            <body>
+                                                              <div class="">
+                                                                  <h2 class="text-center my-5"></h2>
+                                                                  
+                                                                  <div class="col-lg-8 mx-auto my-5">	
+                                                             
+                                                                    @if(count($errors) > 0)
+                                                                    <div class="alert alert-danger">
+                                                                      @foreach ($errors->all() as $error)
+                                                                      {{ $error }} <br/>
+                                                                      @endforeach
+                                                                    </div>
+                                                                    @endif
+                                                             
+                                                                    <form action="/upload/proses" method="POST" enctype="multipart/form-data">
+                                                                      {{ csrf_field() }}
+                                                             
+                                                                      <div class="form-group">
+                                                                        <b>File Gambar</b><br/>
+                                                                        <input type="file" name="gambar"  required value="{{ old('gabar') }}">
+                                                                      </div>
+                                                                    </form>
+                                                                  </div>
+                                                              </div>
+                                                            </body>
+
+
+
                                                             <div class="form-floating">
-                                                                <input type="text" name="name" class="form-control rounded-top @error('name') is-invalid @enderror"
-                                                                id="name" placeholder="name" required value="{{ old('name') }}"><label for="name">Name</label>
-                                                                @error('name')
+                                                              <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="name" required value="{{ old('name') }}">
+                                                              <label for="name">name</label>
+                                                              @error('name')
                                                                 <div class="invalid-feedback">
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
                                                             </div>
+
+                                                            <label>Price</label>
                                                             <div class="form-floating">
                                                                 <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="price" placeholder="price" required value="{{ old('price') }}">
                                                                 <label for="price">price</label>
@@ -45,6 +76,7 @@
                                                                     </div>                    
                                                                   @enderror
                                                               </div>
+                                                              <label>COGS</label>
                                                               <div class="form-floating">
                                                                 <input type="text" name="COGS" class="form-control @error('COGS') is-invalid @enderror rounded-bottom" id="COGS" placeholder="COGS" required value="{{ old('COGS') }}">
                                                                 <label for="COGS">COGS</label>
@@ -53,7 +85,8 @@
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>                   
+                                                              </div>  
+                                                              <label>inventory</label>                 
                                                               <div class="form-floating">
                                                                 <input type="text" name="inventory" class="form-control @error('inventory') is-invalid @enderror rounded-bottom" id="inventory" placeholder="inventory" required value="{{ old('inventory') }}">
                                                                 <label for="inventory">inventory</label>
@@ -62,7 +95,8 @@
                                                                     {{ $message }}
                                                                   </div>                    
                                                                 @enderror
-                                                              </div>                   
+                                                              </div>  
+                                                              <label>Order</label>                 
                                                               <div class="form-floating">
                                                                 <input type="text" name="order" class="form-control @error('order') is-invalid @enderror" id="order" placeholder="order" required value="{{ old('order') }}">
                                                                 <label for="order">order</label>
@@ -72,6 +106,7 @@
                                                                   </div>                    
                                                                 @enderror
                                                               </div>
+                                                              <label>Paidratio</label>
                                                               <div class="form-floating">
                                                                 <input type="text" name="paidratio" class="form-control @error('paidratio') is-invalid @enderror" id="paidratio" placeholder="paidratio" required value="{{ old('paidratio') }}">
                                                                 <label for="paidratio">paidratio</label>
@@ -81,6 +116,7 @@
                                                                   </div>                    
                                                                 @enderror
                                                               </div>
+                                                              <label>qtysold</label>
                                                               <div class="form-floating">
                                                                 <input type="text" name="qtysold" class="form-control @error('qtysold') is-invalid @enderror" id="qtysold" placeholder="qtysold" required value="{{ old('qtysold') }}">
                                                                 <label for="qtysold">qtysold</label>
@@ -90,6 +126,7 @@
                                                                   </div>                    
                                                                 @enderror
                                                               </div>
+                                                              <label>Netrevenuee</label>
                                                               <div class="form-floating">
                                                                 <input type="text" name="netrevenue" class="form-control @error('netrevenue') is-invalid @enderror" id="netrevenue" placeholder="netrevenue" required value="{{ old('netrevenue') }}">
                                                                 <label for="netrevenue">netrevenue</label>
